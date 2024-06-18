@@ -1,0 +1,121 @@
+﻿<Window x:Class="WPF_HTTP_SERVER.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_HTTP_SERVER"
+        mc:Ignorable="d"
+        Title="Server Manager"
+        Height="146" MinHeight="146" MaxHeight="156" 
+        Width="330" MinWidth="330" MaxWidth="340"
+        Closing="Window_Closing"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Text="Server Ip: "
+                       Grid.Column="0"
+                       Margin="10,10,10,10"
+                       VerticalAlignment="Top"/>
+            <Grid Grid.Column="1"
+                  Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="TextBox_ServerIp"
+                         Grid.Column="0"
+                         Height="Auto"
+                         VerticalAlignment="Top"
+                         Margin="0,0,2,0"
+                         Text="127.0.0.1"/>
+                <TextBox x:Name="TextBox_ServerPort"
+                         Grid.Column="1"
+                         Height="Auto"
+                         Width="40"
+                         MaxLength="4"
+                         TextAlignment="Center"
+                         VerticalAlignment="Top"
+                         Margin="2,0,0,0"
+                         Text="8888"/>
+            </Grid>
+            <Rectangle x:Name="Rectangle_Status"
+                       Grid.Column="2" 
+                       Fill="Red" 
+                       Width="20" 
+                       Height="20"
+                       VerticalAlignment="Top"
+                       Margin="0,5,5,0"/>
+
+            <TextBlock Text="Python.dll"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       Margin="10,10,10,10"
+                       VerticalAlignment="Top"/>
+            <Grid Grid.Column="1" Grid.Row="1"
+                  Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="TextBox_PythondllPath"
+                         Grid.Column="0"
+                         Height="Auto"
+                         Margin="0,0,2,0"
+                         VerticalAlignment="Top"/>
+                <Button x:Name="Button_OpenDialogWindow" Grid.Column="1"
+                        Width="25"
+                        Height="17" 
+                        VerticalAlignment="Top"
+                         Margin="2,0,0,0"
+                        Click="Button_OpenDialogWindow_Click">
+                    <TextBlock VerticalAlignment="Center">
+                        ···
+                    </TextBlock>
+                </Button>
+            </Grid>
+            
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Button_StopServer"
+                    Grid.Column="0"
+                    Margin="5,0,5,5"
+                    Background="#FFFF8B8B" Click="Button_StopServer_Click">
+                <TextBlock Text="Stop" Margin="5,2,5,2"/>
+            </Button>
+            <Button x:Name="Button_Restart"
+                    IsEnabled="False"
+                    Grid.Column="1"
+                    Margin="5,0,5,5"
+                    Background="#FFFFFFB5" Click="Button_Restart_Click">
+                <TextBlock Text="Restart" Margin="5,2,5,2"/>
+            </Button>
+            <Button x:Name="Button_Start"
+                    Grid.Column="2"
+                    Margin="5,0,5,5"
+                    Background="#FFC0FFBB" Click="Button_Start_Click">
+                <TextBlock Text="Start" Margin="5,2,5,2"/>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
